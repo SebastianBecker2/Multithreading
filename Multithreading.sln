@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ConcurrentConsoleOutput", "ConcurrentConsoleOutput\ConcurrentConsoleOutput.vcxproj", "{362FCC57-9A59-4B05-A5EA-426A5D554D5D}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "IntegerIncrement", "IntegerIncrement\IntegerIncrement.vcxproj", "{FD07E83A-944C-4991-AC1B-93139C730D30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{362FCC57-9A59-4B05-A5EA-426A5D554D5D}.Release|x64.Build.0 = Release|x64
 		{362FCC57-9A59-4B05-A5EA-426A5D554D5D}.Release|x86.ActiveCfg = Release|Win32
 		{362FCC57-9A59-4B05-A5EA-426A5D554D5D}.Release|x86.Build.0 = Release|Win32
+		{FD07E83A-944C-4991-AC1B-93139C730D30}.Debug|x64.ActiveCfg = Debug|x64
+		{FD07E83A-944C-4991-AC1B-93139C730D30}.Debug|x64.Build.0 = Debug|x64
+		{FD07E83A-944C-4991-AC1B-93139C730D30}.Debug|x86.ActiveCfg = Debug|Win32
+		{FD07E83A-944C-4991-AC1B-93139C730D30}.Debug|x86.Build.0 = Debug|Win32
+		{FD07E83A-944C-4991-AC1B-93139C730D30}.Release|x64.ActiveCfg = Release|x64
+		{FD07E83A-944C-4991-AC1B-93139C730D30}.Release|x64.Build.0 = Release|x64
+		{FD07E83A-944C-4991-AC1B-93139C730D30}.Release|x86.ActiveCfg = Release|Win32
+		{FD07E83A-944C-4991-AC1B-93139C730D30}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
