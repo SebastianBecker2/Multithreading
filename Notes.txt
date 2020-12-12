@@ -1,0 +1,27 @@
+
+Myths progreammers believe about cpu caches:
+https://software.rajivprab.com/2018/04/29/myths-programmers-believe-about-cpu-caches/
+
+Pushing the limits of windows:
+https://techcommunity.microsoft.com/t5/windows-blog-archive/pushing-the-limits-of-windows-physical-memory/ba-p/723674
+
+
+volatile (c++) -> optimization prevention -> memory mapped IO
+volatile (C#) -> ensures volatile writes are observed and preventing stale reads
+
+volatile int my_value = 0;
+volatile bool has_changed = false;
+
+void ChangValue(int new_value)
+{
+    // volatile prevents compiler from re-ordering
+    // those assignments.
+    my_value = new_value; 
+    has_changed = true;
+}
+
+int ReadValue()
+{
+    while (!has_changed) {}
+    return my_value;
+}
