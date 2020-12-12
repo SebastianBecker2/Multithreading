@@ -1,5 +1,4 @@
-
-Myths progreammers believe about cpu caches:
+Myths programmers believe about cpu caches:
 https://software.rajivprab.com/2018/04/29/myths-programmers-believe-about-cpu-caches/
 
 Pushing the limits of windows:
@@ -25,3 +24,26 @@ int ReadValue()
     while (!has_changed) {}
     return my_value;
 }
+
+Basic:
+Mutex/Locks
+Interrupts
+Memory Barrier
+
+WinAPI:
+Event Objects
+Overlapped IO / IO Completion Ports / IO Completion Notification
+
+Linux:
+AsioAPI
+
+C#:
+ManualResetEvent
+Semaphore
+Monitor
+Interlocked Operations
+
+Java:
+Semaphore
+CountDownLatch
+CyclicBarrier
