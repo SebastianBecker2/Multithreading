@@ -241,12 +241,12 @@ namespace DataProcessing
         private void ProcessFiles()
         {
             while (FilesToProcess.TryDequeue(out string filename)) {
-                ProcessFile(filename);
-
                 if (Cancel)
                 {
                     return;
                 }
+
+                ProcessFile(filename);
             }
         }
 
