@@ -131,6 +131,9 @@ namespace DataProcessing
         private volatile bool Cancel = false;
         private ThreadSafeRandom Random = new ThreadSafeRandom();
 
+        private int ThreadCount;
+        private string ThreadCountLabel;
+
         public Form1()
         {
             InitializeComponent();
@@ -140,7 +143,23 @@ namespace DataProcessing
         {
             ResetDgvFilenames(Filenames);
 
+            ThreadCountLabel = LblThreadCount.Text;
+            TrbThreadCount.Maximum = Environment.ProcessorCount * 4;
+            TrbThreadCount.Value = Environment.ProcessorCount;
+            SetThreadCount(Environment.ProcessorCount);
+
             base.OnLoad(e);
+        }
+
+        private void SetThreadCount(int count)
+        {
+            ThreadCount = count;
+            LblThreadCount.Text = ThreadCountLabel + " " + ThreadCount.ToString();
+        }
+
+        private void TrbThreadCount_Scroll(object sender, EventArgs e)
+        {
+            SetThreadCount(TrbThreadCount.Value);
         }
 
         public void OnFileFinished(string filename)
@@ -155,7 +174,25 @@ namespace DataProcessing
                     }
 
                     row.DefaultCellStyle.BackColor = Color.LightGreen;
-                    this.Refresh();
+                    DgvFilenames.Refresh();
+                    return;
+                }
+            });
+        }
+
+        public void OnFileProcessing(string filename)
+        {
+            DgvFilenames.InvokeIfRequired(() =>
+            {
+                foreach (var row in DgvFilenames.Rows.Cast<DataGridViewRow>())
+                {
+                    if (filename != row.Cells[0].Value as string)
+                    {
+                        continue;
+                    }
+
+                    row.DefaultCellStyle.BackColor = Color.Gold;
+                    DgvFilenames.Refresh();
                     return;
                 }
             });
@@ -190,7 +227,7 @@ namespace DataProcessing
             FilesToProcess = new ConcurrentQueue<string>(Filenames);
             Cancel = false;
 
-            foreach (var i in Enumerable.Range(0, Environment.ProcessorCount))
+            foreach (var i in Enumerable.Range(0, ThreadCount))
             {
                 Task.Factory.StartNew(ProcessFiles);
             }
@@ -216,6 +253,7 @@ namespace DataProcessing
         private void ProcessFile(string filename)
         {
             DateTime start = DateTime.Now;
+            OnFileProcessing(filename);
 
             int time_in_milliseconds = Random.Next(1000, 3000);
             while (DateTime.Now - start < TimeSpan.FromMilliseconds(time_in_milliseconds))
