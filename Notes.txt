@@ -4,6 +4,9 @@ https://software.rajivprab.com/2018/04/29/myths-programmers-believe-about-cpu-ca
 Pushing the limits of windows:
 https://techcommunity.microsoft.com/t5/windows-blog-archive/pushing-the-limits-of-windows-physical-memory/ba-p/723674
 
+1024Cores
+http://www.1024cores.net/
+
 
 volatile (c++) -> optimization prevention -> memory mapped IO
 volatile (C#) -> ensures volatile writes are observed and preventing stale reads
