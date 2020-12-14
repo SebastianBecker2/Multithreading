@@ -1136,11 +1136,13 @@ _gaq.push(['_trackPageview']);
             DownloadCancled = false;
             string downloaded_page = "";
 
-            foreach (var c in PageContent)
+            var page_part = PageContent.Length / 100;
+            var duration_part = DownloadDuration / 100;
+            for (var i = 0; i < 100; i++)
             {
-                Thread.Sleep(DownloadDuration / PageContent.Length);
-                downloaded_page += c;
-                OnDownloadProgressChanged((int)(downloaded_page.Length / (double)PageContent.Length * 100));
+                downloaded_page += PageContent.Substring(page_part * i, page_part);
+                Thread.Sleep(duration_part);
+                OnDownloadProgressChanged(i);
 
                 if (DownloadCancled)
                 {
