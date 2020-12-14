@@ -26,7 +26,7 @@ void OutputColoredText(ConsoleColor color)
 {
     for (auto i = 0; i < IterationsPerThread; i++)
     {
-        std::this_thread::sleep_for(std::chrono::milliseconds(10));
+        std::this_thread::sleep_for(SleepPerIteration);
 #ifdef USE_MUTEX
         std::lock_guard lock(mutex);
 #endif

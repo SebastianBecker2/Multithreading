@@ -20,7 +20,7 @@ static constexpr std::chrono::milliseconds SleepPerIteration{ 10 };
 void IncrementCounter() {
   for (auto i = 0; i < IterationsPerThread; i++)
   {
-    std::this_thread::sleep_for(std::chrono::milliseconds(10));
+    std::this_thread::sleep_for(SleepPerIteration);
     SharedCounter++;
   }
 }
