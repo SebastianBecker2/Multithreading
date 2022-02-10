@@ -1,4 +1,7 @@
 # Multithreading
+
+[![Build status](https://ci.appveyor.com/api/projects/status/jnlmxljyearwsxr8/branch/master?svg=true)](https://ci.appveyor.com/project/SebastianBecker2/multithreading/branch/master)
+
 Demo apps to show multithreading issues
 
 It contains a Notes.txt file with some links and buzzwords regarding multithreading.
